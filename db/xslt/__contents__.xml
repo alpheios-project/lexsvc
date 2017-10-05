@@ -1,0 +1,49 @@
+<collection xmlns="http://exist.sourceforge.net/NS/exist" name="/db/xslt" owner="admin" group="dba" mode="755" created="2017-10-02T11:33:21-04:00" version="1">
+    <acl entries="0" version="1"/>
+        <acl entries="0" version="1"/>
+    <resource type="XMLResource" name="alpheios-ara-unistrip.xsl" owner="admin" group="dba" mode="644" created="2017-10-02T11:35:11-04:00" modified="2017-10-02T11:35:11-04:00" filename="alpheios-ara-unistrip.xsl" mimetype="application/xslt+xml">
+        <acl entries="0" version="1"/>
+    </resource>
+    <resource type="XMLResource" name="alpheios-beta2unicode.xsl" owner="admin" group="dba" mode="644" created="2017-10-02T11:35:11-04:00" modified="2017-10-02T11:35:11-04:00" filename="alpheios-beta2unicode.xsl" mimetype="application/xslt+xml">
+        <acl entries="0" version="1"/>
+    </resource>
+    <resource type="XMLResource" name="alpheios-buck2uni.xsl" owner="admin" group="dba" mode="644" created="2017-10-02T11:35:11-04:00" modified="2017-10-02T11:35:11-04:00" filename="alpheios-buck2uni.xsl" mimetype="application/xslt+xml">
+        <acl entries="0" version="1"/>
+    </resource>
+    <resource type="XMLResource" name="alpheios-lexi-tei.xsl" owner="admin" group="dba" mode="644" created="2017-10-02T11:35:11-04:00" modified="2017-10-02T11:35:11-04:00" filename="alpheios-lexi-tei.xsl" mimetype="application/xslt+xml">
+        <acl entries="0" version="1"/>
+    </resource>
+    <resource type="XMLResource" name="alpheios-uni2betacode.xsl" owner="admin" group="dba" mode="644" created="2017-10-02T11:35:11-04:00" modified="2017-10-02T11:35:11-04:00" filename="alpheios-uni2betacode.xsl" mimetype="application/xslt+xml">
+        <acl entries="0" version="1"/>
+    </resource>
+    <resource type="XMLResource" name="alpheios-uni2buck.xsl" owner="admin" group="dba" mode="644" created="2017-10-02T11:35:11-04:00" modified="2017-10-02T11:35:11-04:00" filename="alpheios-uni2buck.xsl" mimetype="application/xslt+xml">
+        <acl entries="0" version="1"/>
+    </resource>
+    <resource type="XMLResource" name="alpheios-unistrip.xsl" owner="admin" group="dba" mode="644" created="2017-10-02T11:35:11-04:00" modified="2017-10-02T11:35:11-04:00" filename="alpheios-unistrip.xsl" mimetype="application/xslt+xml">
+        <acl entries="0" version="1"/>
+    </resource>
+    <resource type="XMLResource" name="ara-uni-util.xsl" owner="admin" group="dba" mode="644" created="2017-10-02T11:35:11-04:00" modified="2017-10-02T11:35:11-04:00" filename="ara-uni-util.xsl" mimetype="application/xslt+xml">
+        <acl entries="0" version="1"/>
+    </resource>
+    <resource type="XMLResource" name="arabic-uni-util.xsl" owner="admin" group="dba" mode="644" created="2017-10-02T11:35:11-04:00" modified="2017-10-02T11:35:11-04:00" filename="arabic-uni-util.xsl" mimetype="application/xslt+xml">
+        <acl entries="0" version="1"/>
+    </resource>
+    <resource type="XMLResource" name="ascii-uni-util.xsl" owner="admin" group="dba" mode="644" created="2017-10-02T11:35:11-04:00" modified="2017-10-02T11:35:11-04:00" filename="ascii-uni-util.xsl" mimetype="application/xslt+xml">
+        <acl entries="0" version="1"/>
+    </resource>
+    <resource type="XMLResource" name="beta-uni-util.xsl" owner="admin" group="dba" mode="644" created="2017-10-02T11:35:11-04:00" modified="2017-10-02T11:35:11-04:00" filename="beta-uni-util.xsl" mimetype="application/xslt+xml">
+        <acl entries="0" version="1"/>
+    </resource>
+    <resource type="XMLResource" name="beta2unicode.xsl" owner="admin" group="dba" mode="644" created="2017-10-02T11:35:11-04:00" modified="2017-10-02T11:35:11-04:00" filename="beta2unicode.xsl" mimetype="application/xslt+xml">
+        <acl entries="0" version="1"/>
+    </resource>
+    <resource type="XMLResource" name="uni2ascii.xsl" owner="admin" group="dba" mode="644" created="2017-10-02T11:35:11-04:00" modified="2017-10-02T11:35:11-04:00" filename="uni2ascii.xsl" mimetype="application/xslt+xml">
+        <acl entries="0" version="1"/>
+    </resource>
+    <resource type="XMLResource" name="uni2betacode.xsl" owner="admin" group="dba" mode="644" created="2017-10-02T11:35:11-04:00" modified="2017-10-02T11:35:11-04:00" filename="uni2betacode.xsl" mimetype="application/xslt+xml">
+        <acl entries="0" version="1"/>
+    </resource>
+    <resource type="XMLResource" name="uni2buck.xsl" owner="admin" group="dba" mode="644" created="2017-10-02T11:35:11-04:00" modified="2017-10-02T11:35:11-04:00" filename="uni2buck.xsl" mimetype="application/xslt+xml">
+        <acl entries="0" version="1"/>
+    </resource>
+</collection>
