@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:exsl="http://exslt.org/common">
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <!--
   Copyright 2008-2009 Cantus Foundation
@@ -1717,7 +1716,7 @@
     </beta-uni-table>
   </xsl:variable>
   <xsl:variable name="s_betaUniTable"
-    select="exsl:node-set($s_rawTable)/beta-uni-table"/>
+    select="$s_rawTable/beta-uni-table"/>
 
   <!--
     Insert betacode diacritic character in sorted order in string

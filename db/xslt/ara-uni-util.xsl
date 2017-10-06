@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:exsl="http://exslt.org/common"
-                version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"                
+                version="2.0">
   <!--
     Copyright 2009-2010 Cantus Foundation, The Alpheios Project, Ltd.
     http://alpheios.net
@@ -36,7 +35,7 @@
   -->
   <xsl:variable name="s_araBuckwalter"
     >'|&gt;0&amp;W&lt;I}AbptvjHxd*rzs$SDTZEg_fqklmnhwYyFNKaui~oo`{PJVG</xsl:variable>
-  <xsl:variable name="s_araUnicode"
+    <xsl:variable name="s_araUnicode"
     >&#x0621;&#x0622;&#x0623;&#x0623;&#x0624;&#x0624;&#x0625;&#x0625;&#x0626;&#x0627;&#x0628;&#x0629;&#x062A;&#x062B;&#x062C;&#x062D;&#x062E;&#x062F;&#x0630;&#x0631;&#x0632;&#x0633;&#x0634;&#x0635;&#x0636;&#x0637;&#x0638;&#x0639;&#x063A;&#x0640;&#x0641;&#x0642;&#x0643;&#x0644;&#x0645;&#x0646;&#x0647;&#x0648;&#x0649;&#x064A;&#x064B;&#x064C;&#x064D;&#x064E;&#x064F;&#x0650;&#x0651;&#x0652;&#x06E1;&#x0670;&#x0671;&#x067E;&#x0686;&#x06A4;&#x06AF;</xsl:variable>
 
   <!--
@@ -63,7 +62,7 @@
     </drop-table>
   </xsl:variable>
   <xsl:variable name="s_araDiacritics"
-    select="exsl:node-set($s_rawAraDiacritics)/drop-table"/>
+    select="$s_rawAraDiacritics/drop-table"/>
 
   <xsl:variable name="s_araDropAll">tanwin,hamza,harakat,shadda,sukun,alef</xsl:variable>
   
@@ -87,7 +86,7 @@
         Regexes taken from Gabe Weaver's depersify.pl Perl script.
       -->
       <xsl:when test="$a_depersify">
-        <!-- XSLT 1.0 -->
+        <!-- XSLT 1.0 
         <xsl:variable name="temp">
           <xsl:call-template name="replace-1.0">
             <xsl:with-param name="a_in" >
@@ -119,8 +118,9 @@
             <xsl:with-param name="a_replace" select="'}'"/>
           </xsl:call-template>
         </xsl:variable>
+        -->
         <!-- XSLT 2.0 -->
-<!--    <xsl:variable
+        <xsl:variable
           name="temp"
           select="replace(
                     replace(
@@ -130,7 +130,7 @@
                           'A\^', '&gt;'),
                         'A_', '&lt;'),
                       'w\^', '&amp;'),
-                    'y\^', '}')"/> -->
+                    'y\^', '}')"/> 
         <xsl:value-of
           select="translate($temp, $s_araBuckwalter, $s_araUnicode)"/>
       </xsl:when>
