@@ -631,7 +631,7 @@
   </xsl:template>
 
   <xsl:template
-    match="note[@place='foot']|note[@place='unspecified']|note[@place='text']|note[not(@place)]">
+    match="note[@place='foot']|note[@place='unspecified']|note[@place='text']|note[not(@place) and not(@lang)]">
     <xsl:variable name="identifier">
       <xsl:call-template name="footnoteID"/>
     </xsl:variable>
@@ -770,7 +770,7 @@
     </a>
   </xsl:template>
 
-  <xsl:template match="//note[@lang!='']">
+  <xsl:template match="//note[@lang!='' and not(@place)]">
     <xsl:call-template name="language-filter">
       <xsl:with-param name="lang" select="@lang"/>
     </xsl:call-template>
