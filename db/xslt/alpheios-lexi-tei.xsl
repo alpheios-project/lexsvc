@@ -1187,7 +1187,7 @@
     </h4>
   </xsl:template>
 
-  <xsl:template match="winner|race|date">
+  <xsl:template match="winner|race">
     <xsl:apply-templates/>, <xsl:text> </xsl:text>
   </xsl:template>
 
