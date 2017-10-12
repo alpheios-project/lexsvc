@@ -32,7 +32,7 @@ all_valid = True
 config_file = 'http_check.yaml'
 
 def http_report(site, http_status,config):
-    log(site + ":" + str(http_status), config, False)
+    log(str(http_status)+ ","+site, config, False)
 
     return # Any custom actions here
 
@@ -52,7 +52,6 @@ def read_index_file(file):
     for line in f:
         lemma,id = line.rstrip().split('|')
         entries.append(id)
-    print str(entries)
     return entries
 
 # Function from http://stackoverflow.com/a/1140822/401554
@@ -66,7 +65,6 @@ def get_status_code(host, path="/", https = False):
     try:
         if (https):
             conn = httplib.HTTPSConnection(host)
-            print "HTTPS: "+host
         else:
 	    conn = httplib.HTTPConnection(host)
         conn.request("GET", path)
@@ -97,10 +95,10 @@ def main():
             else:
                 https = False
             for id in ids:
-                uri = uri.replace('<LEMMAID>',id)
+                test_uri = uri.replace('<LEMMAID>',id)
                 # Get the HTTP code
                 code = get_status_code(site['domain'], uri, https)
-                checked = site['domain'] + uri
+                checked = site['domain'] + test_uri
                 print("Checking "+site['name']+" ("+checked+") ... "+ str(code),config)
 
                 http_report(checked, code, config)
@@ -129,7 +127,6 @@ def log(string,config,newlog=False):
                 mode = 'w'
             else:
                 mode = 'a'
-            print("Mode=" + mode)
             f = open(config['output_file'], mode)
             f.write(string)
             f.close()
