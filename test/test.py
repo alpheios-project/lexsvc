@@ -15,6 +15,7 @@
 import httplib
 import yaml
 import smtplib
+import re
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from datetime import datetime
@@ -25,6 +26,7 @@ config = None
 # Is set to False when any checked sites return HTTP code other than 200
 # The report mail is sent when this is False
 all_valid = True
+all_found = True
 
 # ------------- START config
 
@@ -51,12 +53,11 @@ def read_index_file(file):
     f = open(file)
     for line in f:
         lemma,id = line.rstrip().split('|')
-        entries.append(id)
+        if id != '@':
+            entries.append(id)
     return entries
 
-# Function from http://stackoverflow.com/a/1140822/401554
-# Get HTTP status code of a domain + path
-def get_status_code(host, path="/", https = False):
+def get_response(host, path="/", https = False):
     """ This function retreives the status code of a website by requesting
         HEAD data from the host. This means that it only requests the headers.
         If the host cannot be reached or something else goes wrong, it returns
@@ -68,14 +69,14 @@ def get_status_code(host, path="/", https = False):
         else:
 	    conn = httplib.HTTPConnection(host)
         conn.request("GET", path)
-        return conn.getresponse().status
+        return conn.getresponse()
     except StandardError:
         return None
 
 
 # Main - read config, check each site
 def main():
-    global all_valid, config
+    global all_valid, config, all_found
 
     # Contains a list of sites to check
     config = read_config()
@@ -97,21 +98,35 @@ def main():
             for id in ids:
                 test_uri = uri.replace('<LEMMAID>',id)
                 # Get the HTTP code
-                code = get_status_code(site['domain'], uri, https)
+                response = get_response(site['domain'], test_uri, https)
+                code = response.status
                 checked = site['domain'] + test_uri
-                print("Checking "+site['name']+" ("+checked+") ... "+ str(code),config)
+                print("Checking "+site['name']+" ("+checked+") ... "+ str(code))
 
                 http_report(checked, code, config)
                 if (code != 200):
                     all_valid = False
+                else:
+                    data = response.read()
+                    pattern = re.compile('lemma-id=[\'"]' + id + '[\'"]',re.M)
+                    if pattern.search(data,re.M) is None:
+                        all_found = False
+                        print("No entries found for "+site['name']+" "+checked)
+                        log("---," + checked, config, False)
+                    
 
-    log(str(datetime.now())+': Checking completed. All valid: ' + str(all_valid),config,False)
+    log(str(datetime.now())+': Checking completed. All valid: ' + str(all_valid) + " All found: " + str(all_found),config,False)
 
     # Send report when failures need reporting
     if (not all_valid):
-        print('Some sites failed.',config)
+        print('Some lookups errored.')
     else:
-        print('All tests reported status code 200.',config)
+        print('All tests reported status code 200.')
+    if (not all_found):
+        print('Some lookups failed.',config)
+    else:
+        print('All tests found entries.')
+
 
 
 def log(string,config,newlog=False):
