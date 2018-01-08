@@ -181,7 +181,7 @@
     </div>
   </xsl:template>
 
-  <xsl:template match="sense[@n=0]">
+  <xsl:template match="sense[@n=0 and not(@level)]">
     <div class="lex_sense">
       <xsl:call-template name="correct-sense"/>
       <xsl:apply-templates/>
