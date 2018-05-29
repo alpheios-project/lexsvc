@@ -1024,6 +1024,10 @@
   <xsl:template match="milestone[@unit='verse']">
     <xsl:if test="@n!=1"> [<xsl:value-of select="@n"/>] </xsl:if>
   </xsl:template>
+  
+  <xsl:template match="milestone[@unit='sense']">
+    <p class="sense-separator"><xsl:text> </xsl:text></p><span><xsl:attribute name="class" select="concat('sense-spacer',@n)"></xsl:attribute><xsl:text> </xsl:text></span>
+  </xsl:template>
 
   <xsl:template match="div1">
     <xsl:choose>
