@@ -176,8 +176,8 @@ declare function lxget:get-source(
     element title { $a_lexicon//titleStmt/title[1] },
 
     let $authors := string-join($a_lexicon//titleStmt/author, ", ")
-    let $imprint := $a_lexicon//sourceDesc/biblStruct/imprint
-    let $pubinfo := if ($imprint) then string-join(($imprint/pubPlace,$imprint/publisher/,$imprint/date),",") else ()
-    return if ($authors or $pubinfo) then concat(" (", string-join($authors,','$pubinfo), ") ") else ()
+    let $imprint := $a_lexicon//sourceDesc/biblStruct/monogr/imprint
+    let $pubinfo := if ($imprint) then string-join(($imprint/pubPlace,$imprint/publisher,$imprint/date),", ") else ()
+    return if ($authors or $pubinfo) then concat(" (", string-join(($authors,$pubinfo),", "), ") ") else ()
   }
 };
