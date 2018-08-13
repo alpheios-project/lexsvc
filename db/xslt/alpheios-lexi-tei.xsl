@@ -43,7 +43,6 @@
 
   <xsl:template match="/">
     <div class="text_container {$e_lang}">
-      <xsl:apply-templates select="/alph:output/alph:source"/>
       <xsl:apply-templates
         select="/alph:error|/alph:output/alph:entry|/alph:output/alph:error|/TEI.2/text/front|/tei.2/text/front|/TEI.2/text/body|/tei.2/text/back|/TEI.2/text/back|/TEI.2/text/group/text"/>
       <xsl:text> </xsl:text>
@@ -54,6 +53,7 @@
         <xsl:text> </xsl:text>
         <xsl:call-template name="footnotes"/>
       </div>
+      <xsl:apply-templates select="/alph:output/alph:source"/>
     </div>
   </xsl:template>
 
