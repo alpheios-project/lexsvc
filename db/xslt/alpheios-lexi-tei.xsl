@@ -42,14 +42,14 @@
   <xsl:param name="e_sourcesub" select="0"/>
 
   <xsl:template match="/">
-    <div class="text_container {$e_lang}">
+    <div class="alpheios-lex-text_container {$e_lang}">
       <xsl:apply-templates
         select="/alph:error|/alph:output/alph:entry|/alph:output/alph:error|/TEI.2/text/front|/tei.2/text/front|/TEI.2/text/body|/tei.2/text/back|/TEI.2/text/back|/TEI.2/text/group/text"/>
       <xsl:text> </xsl:text>
       <!-- The space is necessary here so that we don't run the risk of
            outputting an empty DIV tag, which some browsers may interpret
            poorly, if there are no footnotes -->
-      <div class="footnotes en">
+      <div class="alpheios-lex-footnotes en">
         <xsl:text> </xsl:text>
         <xsl:call-template name="footnotes"/>
       </div>
@@ -121,7 +121,7 @@
   </xsl:template>
 
   <xsl:template match="gloss">
-    <span class="gloss">
+    <span class="alpheios-lex-gloss">
       <xsl:apply-templates/>
     </span>
   </xsl:template>
@@ -139,7 +139,7 @@
   </xsl:template>
 
   <xsl:template match="alph:entry">
-    <div class="entry">
+    <div class="alpheios-lex-entry">
       <xsl:copy-of select="@lemma-id"/>
       <xsl:copy-of select="@lemma-key"/>
       <xsl:copy-of select="@root"/>
@@ -149,14 +149,14 @@
   </xsl:template>
 
   <xsl:template match="alph:error">
-    <div class="error">
+    <div class="alpheios-lex-error">
       <xsl:apply-templates/>
     </div>
   </xsl:template>
 
   <xsl:template match="text[ancestor::text]">
     <p/>
-    <div class="embeddedtext">
+    <div class="alpheios-lex-embeddedtext">
       <xsl:call-template name="language-filter">
         <xsl:with-param name="lang" select="@lang"/>
       </xsl:call-template>
@@ -171,7 +171,7 @@
   </xsl:template>
 
   <xsl:template match="sense[@level]">
-    <div class="lex_sense lex_sense{@level}">
+    <div class="alpheios-lex-lex_sense alpheios-lex-lex_sense{@level}">
       <xsl:call-template name="correct-sense"/>
       <xsl:if test="not(@n='')">
         <b>
@@ -182,14 +182,14 @@
   </xsl:template>
 
   <xsl:template match="sense[@n=0 and not(@level)]">
-    <div class="lex_sense">
+    <div class="alpheios-lex-lex_sense">
       <xsl:call-template name="correct-sense"/>
       <xsl:apply-templates/>
     </div>
   </xsl:template>
 
   <xsl:template match="sense">
-    <div class="lex_sense">
+    <div class="alpheios-lex-lex_sense">
       <xsl:call-template name="correct-sense"/>
       <xsl:if test="not(@n='')">
         <b>
@@ -240,7 +240,7 @@
 
   <xsl:template match="surname">
     <!-- careful of empty surname tags, since some have been sighted! -->
-    <span class="surname">
+    <span class="alpheios-lex-surname">
       <xsl:choose>
         <xsl:when test="text()">
           <xsl:apply-templates/>
@@ -256,7 +256,7 @@
   </xsl:template>
 
   <xsl:template match="forename">
-    <span class="forename">
+    <span class="alpheios-lex-forename">
       <xsl:choose>
         <xsl:when test="text()">
           <xsl:apply-templates/>
@@ -325,7 +325,7 @@
   </xsl:template>
 
   <xsl:template match="alph:source">
-    <div class="alph-source">
+    <div class="alpheios-lex-alph-source">
       <xsl:apply-templates/>
     </div>
   </xsl:template>
@@ -922,7 +922,7 @@
   <xsl:template match="lb[@n!='']">
     <xsl:if test="number(@n)=NaN or @n mod 5 = 0">
       <span style="float: right" class="linenumber">
-        <span class="english">(<xsl:value-of select="@n"/>)</span>
+        <span class="alpheios-lex-english">(<xsl:value-of select="@n"/>)</span>
       </span>
     </xsl:if>
     <br/>
@@ -989,13 +989,13 @@
       </xsl:if>
     </xsl:variable>
 
-    <a class="permalink" id="{$link}" href="#{$link}">[*]</a>
+    <a class="alpheios-lex-permalink" id="{$link}" href="#{$link}">[*]</a>
   </xsl:template>
 
   <!-- section numbers have to be wrapped in <span class="english"> tags to prevent
        the Greek transcoder from interpreting "184c" as xi. -->
   <xsl:template match="milestone[@unit='section']">
-    <xsl:if test="@n!=1"> [<span class="english">
+    <xsl:if test="@n!=1"> [<span class="alpheios-lex-english">
         <xsl:value-of select="@n"/>
       </span>] <xsl:text> </xsl:text>
     </xsl:if>
@@ -1004,7 +1004,7 @@
   <xsl:template match="milestone[@unit='para']">
     <p/>
     <xsl:if test="@ref!=''">
-      <span class="english">
+      <span class="alpheios-lex-english">
         <xsl:value-of select="@ref"/>
       </span>
     </xsl:if>
@@ -1143,7 +1143,7 @@
 
 
   <xsl:template match="rs|RS|Rs">
-    <span class="ref">
+    <span class="alpheios-lex-ref">
       <xsl:apply-templates/>
     </span>
   </xsl:template>
@@ -1224,52 +1224,52 @@
 
     <xsl:choose>
       <xsl:when test="$a_lang='la'">
-        <span class="la">
+        <span class="alpheios-lex-la">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
       <xsl:when test="$a_lang='lat'">
-        <span class="la">
+        <span class="alpheios-lex-la">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
       <xsl:when test="$a_lang='latin'">
-        <span class="la">
+        <span class="alpheios-lex-la">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
       <xsl:when test="$a_lang='gk'">
-        <span class="greek">
+        <span class="alpheios-lex-greek">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
       <xsl:when test="$a_lang='greek'">
-        <span class="greek">
+        <span class="alpheios-lex-greek">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
       <xsl:when test="$a_lang='el'">
-        <span class="greek">
+        <span class="alpheios-lex-greek">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
       <xsl:when test="$a_lang='it'">
-        <span class="it">
+        <span class="alpheios-lex-it">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
       <xsl:when test="$a_lang='ar'">
-        <span class="ar">
+        <span class="alpheios-lex-ar">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
       <xsl:when test="$a_lang='ara'">
-        <span class="ar">
+        <span class="alpheios-lex-ar">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
       <xsl:when test="$a_lang='en'">
-        <span class="en">
+        <span class="alpheios-lex-en">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
