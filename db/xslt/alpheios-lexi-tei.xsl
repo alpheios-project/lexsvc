@@ -1026,7 +1026,7 @@
   </xsl:template>
   
   <xsl:template match="milestone[@unit='sense']">
-    <p class="sense-separator"><xsl:text> </xsl:text></p><span><xsl:attribute name="class" select="concat('sense-spacer',@n)"></xsl:attribute><xsl:text> </xsl:text></span>
+    <p class="alpheios-lex-sense-separator"><xsl:text> </xsl:text></p><span><xsl:attribute name="class" select="concat('alpheios-lex-sense-spacer',@n)"></xsl:attribute><xsl:text> </xsl:text></span>
   </xsl:template>
 
   <xsl:template match="div1">
