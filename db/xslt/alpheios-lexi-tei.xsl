@@ -1223,58 +1223,58 @@
     <xsl:param name="default" select="''"/>
 
     <xsl:choose>
-      <xsl:when test="$a_lang='la'">
+      <xsl:when test="$lang='la'">
         <span class="alpheios-lex-la" lang="lat">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
-      <xsl:when test="$a_lang='lat'">
+      <xsl:when test="$lang='lat'">
         <span class="alpheios-lex-la" lang="lat">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
-      <xsl:when test="$a_lang='latin'">
+      <xsl:when test="$lang='latin'">
         <span class="alpheios-lex-la" lang="lat">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
-      <xsl:when test="$a_lang='gk'">
+      <xsl:when test="$lang='gk'">
         <span class="alpheios-lex-greek" lang="grc">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
-      <xsl:when test="$a_lang='greek'">
+      <xsl:when test="$lang='greek'">
         <span class="alpheios-lex-greek" lang="grc">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
-      <xsl:when test="$a_lang='el'">
+      <xsl:when test="$lang='el'">
         <span class="alpheios-lex-greek" lang="grc">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
-      <xsl:when test="$a_lang='it'">
+      <xsl:when test="$lang='it'">
         <span class="alpheios-lex-it" lang="ita">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
-      <xsl:when test="$a_lang='ar'">
+      <xsl:when test="$lang='ar'">
         <span class="alpheios-lex-ar" lang="ara">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
-      <xsl:when test="$a_lang='ara'">
+      <xsl:when test="$lang='ara'">
         <span class="alpheios-lex-ar" lang="ara">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
-      <xsl:when test="$a_lang='en'">
+      <xsl:when test="$lang='en'">
         <span class="alpheios-lex-en" lang="eng">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
-      <xsl:when test="$a_default != ''">
-        <span class="{$a_default}">
+      <xsl:when test="$default != ''">
+        <span class="{$default}">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
