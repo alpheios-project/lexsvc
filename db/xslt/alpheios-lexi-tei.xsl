@@ -1219,8 +1219,8 @@
   </xsl:template>
 
   <xsl:template name="language-filter">
-    <xsl:param name="a_lang"/>
-    <xsl:param name="a_default" select="''"/>
+    <xsl:param name="lang"/>
+    <xsl:param name="default" select="''"/>
 
     <xsl:choose>
       <xsl:when test="$a_lang='la'">
