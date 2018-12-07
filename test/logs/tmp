@@ -1,0 +1,10 @@
+HTTP/1.1 400 Bad Request
+Date: Thu, 12 Oct 2017 12:57:15 GMT
+Server: Jetty(8.1.9.v20130131)
+Content-Type: application/xml; charset=UTF-8
+Via: 1.1 repos1.alpheios.net
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, POST, OPTIONS
+Connection: close
+Transfer-Encoding: chunked
+

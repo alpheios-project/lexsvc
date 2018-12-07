@@ -8,7 +8,7 @@
 log: true
 
 # The log file
-output_file: "logs/http_check.log"
+output_file: "logs/lsj2.log"
 
 # Configure checked sites here
 # Possible options:
@@ -25,6 +25,6 @@ sites:
       uri: "exist/rest/db/xq/lexi-get.xq?lx=<LEX>&lg=<LANG>&out=html&n=<LEMMAID>"
 
 files:
-    - path: '/home/balmas/workspace/ls/dat/test.dat'
-      lang: 'lat'
-      lex: 'ls'
+    - path: '/home/balmas/workspace/stg/dat/per-stg-ids.dat'
+      lang: 'per'
+      lex: 'stg'

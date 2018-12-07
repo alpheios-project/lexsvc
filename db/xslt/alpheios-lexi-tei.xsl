@@ -1224,52 +1224,52 @@
 
     <xsl:choose>
       <xsl:when test="$a_lang='la'">
-        <span class="alpheios-lex-la">
+        <span class="alpheios-lex-la" lang="lat">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
       <xsl:when test="$a_lang='lat'">
-        <span class="alpheios-lex-la">
+        <span class="alpheios-lex-la" lang="lat">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
       <xsl:when test="$a_lang='latin'">
-        <span class="alpheios-lex-la">
+        <span class="alpheios-lex-la" lang="lat">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
       <xsl:when test="$a_lang='gk'">
-        <span class="alpheios-lex-greek">
+        <span class="alpheios-lex-greek" lang="grc">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
       <xsl:when test="$a_lang='greek'">
-        <span class="alpheios-lex-greek">
+        <span class="alpheios-lex-greek" lang="grc">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
       <xsl:when test="$a_lang='el'">
-        <span class="alpheios-lex-greek">
+        <span class="alpheios-lex-greek" lang="grc">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
       <xsl:when test="$a_lang='it'">
-        <span class="alpheios-lex-it">
+        <span class="alpheios-lex-it" lang="ita">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
       <xsl:when test="$a_lang='ar'">
-        <span class="alpheios-lex-ar">
+        <span class="alpheios-lex-ar" lang="ara">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
       <xsl:when test="$a_lang='ara'">
-        <span class="alpheios-lex-ar">
+        <span class="alpheios-lex-ar" lang="ara">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
       <xsl:when test="$a_lang='en'">
-        <span class="alpheios-lex-en">
+        <span class="alpheios-lex-en" lang="eng">
           <xsl:apply-templates/>
         </span>
       </xsl:when>
